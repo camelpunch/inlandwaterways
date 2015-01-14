@@ -14,6 +14,9 @@
 
   :clean-targets ["out/inlandwaterways" "inlandwaterways.js" "inlandwaterways.min.js"]
 
+  :profiles {:dev {:dependencies [[org.clojure/tools.nrepl "0.2.7"]]
+                   :plugins [[cider/cider-nrepl "0.8.1"]]}}
+
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src"]
@@ -21,11 +24,11 @@
                 :output-to "inlandwaterways.js"
                 :output-dir "out"
                 :optimizations :none
-                :cache-analysis true                
+                :cache-analysis true
                 :source-map true}}
              {:id "release"
               :source-paths ["src"]
               :compiler {
                 :output-to "inlandwaterways.min.js"
-                :pretty-print false              
+                :pretty-print false
                 :optimizations :advanced}}]})
