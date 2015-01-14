@@ -8,7 +8,7 @@
 
 (println "Hello world!")
 
-(def map-opts {:center { :lat -34.397 :lng 150.644 }
+(def map-opts {:center { :lat 53.0672367 :lng -2.52393 }
                :zoom 8})
 
 (defn map-load []
