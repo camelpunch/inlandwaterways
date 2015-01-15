@@ -7,8 +7,17 @@
 (def map-opts {:center { :lat 53.0672367 :lng -2.52393 }
                :zoom 8})
 
+(def shroppie-coord [364129.937596856,348351.139023636])
+
+(defn os2latlng [x y]
+  (let [osref (js/OSRef. x y)
+        latlng (.toLatLng osref)]
+    (.OSGB36ToWGS84 latlng)
+    {:lat (.-lat latlng)
+     :lng (.-lng latlng)}))
+
 (def coords [{:lat 53.0672367 :lng -2.5239}
-             {:lat 50 :lng -2.52}])
+             (apply os2latlng shroppie-coord)])
 
 (def polyline
   (js/google.maps.Polyline. (clj->js {:path coords
