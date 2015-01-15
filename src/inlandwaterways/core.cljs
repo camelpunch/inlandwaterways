@@ -22,9 +22,9 @@
 (def polyline
   (js/google.maps.Polyline. (clj->js {:path coords
                                       :geodesic true
-                                      :strokeColor "#FF0000"
+                                      :strokeColor "#000000"
                                       :strokeOpacity 1.0,
-                                      :strokeWeight 2})))
+                                      :strokeWeight 4})))
 
 (defn map-load []
   (let [map (js/google.maps.Map. (.getElementById js/document "map-canvas")
