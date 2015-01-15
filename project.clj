@@ -15,7 +15,8 @@
   :clean-targets ["out/inlandwaterways" "inlandwaterways.js" "inlandwaterways.min.js"]
 
   :profiles {:dev {:dependencies [[org.clojure/tools.nrepl "0.2.7"]]
-                   :plugins [[cider/cider-nrepl "0.8.1"]]}}
+                   :plugins [[com.cemerick/austin "0.1.6"]
+                             [cider/cider-nrepl "0.8.1"]]}}
 
   :cljsbuild {
     :builds [{:id "dev"
