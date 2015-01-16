@@ -12,3 +12,4 @@ inlandwaterways.min.js
 .nrepl-port
 .repl
 node_modules
+.#*
