@@ -3,6 +3,8 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/data.xml "0.0.8"]
+                 [org.clojure/data.zip "0.1.1"]
                  [org.clojure/clojurescript "0.0-2665"]]
 
   :node-dependencies [[source-map-support "0.2.8"]]
@@ -20,7 +22,7 @@
 
   :cljsbuild {
     :builds [{:id "dev"
-              :source-paths ["src"]
+              :source-paths ["src/cljs"]
               :compiler {
                 :output-to "inlandwaterways.js"
                 :output-dir "out"
@@ -28,7 +30,7 @@
                 :cache-analysis true
                 :source-map true}}
              {:id "release"
-              :source-paths ["src"]
+              :source-paths ["src/cljs"]
               :compiler {
                 :output-to "inlandwaterways.min.js"
                 :pretty-print false
