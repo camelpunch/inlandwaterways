@@ -1,14 +1,10 @@
 (ns inlandwaterways.core
   (:require [clojure.browser.repl :as repl]
-            [clojure.string :refer [split]]
             [goog.events :as events]))
 
 (enable-console-print!)
 
 (def northings-eastings '[(["364129.937596856" "348351.139023636"] ["364131.249196855" "348347.218423635"])])
-
-(def map-opts {:center { :lat 53.0672367 :lng -2.52393 }
-               :zoom 8})
 
 (defn os2latlng [x y]
   (let [osref (js/OSRef. x y)
@@ -19,6 +15,9 @@
 
 (def sections (map (fn [input-section] (map #(apply os2latlng %) input-section))
                    northings-eastings))
+
+(def map-opts {:center (ffirst sections)
+               :zoom 10})
 
 (defn create-polyline [coords]
   (js/google.maps.Polyline. (clj->js {:path coords
